@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="icon" href="data:,">
+  <title>Users</title>
+  <style>
+    table th, table td {
+      padding: 10px 5px;
+      font-family: sans-serif;
+      font-size: 14px;
+      border-style: solid;
+      border-width: 1px;
+      background: ivory;
+    }
+    button {
+      padding: 5px;
+      background-color: chartreuse;
+    }
+    .buttonDelete {
+      background: #fd3434;
+      color: white;
+    }
+    .buttonEdit {
+      background: gold;
+      position: relative;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+  </style>
+</head>
+<body>
+<h1>Users</h1>
+<button onclick="window.location.href = '/new';">Add new user</button>
+<br>
+<br>
+<table border="1">
+  <tr>
+    <th th:width="50">UserId</th>
+    <th th:width="120">Name</th>
+    <th th:width="50">Age</th>
+    <th th:width="150">Email</th>
+    <th th:width="150">Role</th>
+    <th th:width="50">Edit</th>
+    <th th:width="50">Delete</th>
+  </tr>
+  <tr th:each="users : ${users}">
+
+    <td><a th:href="@{'/' + ${users.id}}" th:utext="${users.id}">UserId</a></td>
+    <td th:utext="${users.name}">Name</td>
+    <td th:utext="${users.age}">Age</td>
+    <td th:utext="${users.email}">Email</td>
+    <td th:utext="${users.roles}">Role</td>
+    <td>
+      <form th:action="@{'edit/' + ${users.id}}">
+        <input type="submit" class="buttonEdit" value="Edit"/>
+      </form>
+    </td>
+    <td>
+      <form th:method="DELETE" th:action="@{'delete/' + ${users.id}}">
+        <input type="submit" class="buttonDelete" value="Delete"/>
+      </form>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

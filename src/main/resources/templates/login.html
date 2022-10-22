@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    td {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      padding: 10px 5px;
+      border-style: solid;
+      border-width: 1px;
+      overflow: hidden;
+      word-break: normal;
+      border-color: #ccc;
+      color: #333;
+      background-color: ivory;
+    }
+    .buttonLogin {
+      padding: 5px;
+      background-color: deepskyblue;
+    }
+  </style>
+</head>
+<body>
+<br>
+<h1>Login</h1>
+<form method="POST" th:action="@{/login}">
+  <table>
+    <tr>
+      <td>
+        <label for="username">Login</label>
+        <input type="text" name="username" id="username"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password"/>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <input class="buttonLogin" type="submit"/>
+</form>
+</body>
+</html>
